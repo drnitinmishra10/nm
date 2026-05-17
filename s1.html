@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CBSE Class 10 MCQ Quiz – Life Processes & Reflection of Light</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f5f0; min-height: 100vh; display: flex; align-items: flex-start; justify-content: center; padding: 1rem; }
+  #quiz-wrap { background: #fff; border-radius: 16px; box-shadow: 0 2px 16px rgba(0,0,0,0.08); padding: 1.25rem 1rem; width: 100%; max-width: 480px; margin: 0 auto; }
+  h1 { font-size: 17px; font-weight: 600; color: #1a1a1a; margin-bottom: 0.25rem; }
+  .subtitle { font-size: 12px; color: #888; margin-bottom: 1rem; }
+  .progress-bar-bg { background: #eee; border-radius: 99px; height: 6px; margin-bottom: 0.75rem; }
+  .progress-bar-fill { background: #534AB7; border-radius: 99px; height: 6px; transition: width 0.4s; }
+  .q-meta { display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #666; margin-bottom: 0.5rem; }
+  .chapter-badge { font-size: 11px; padding: 3px 10px; border-radius: 99px; background: #f0eff8; color: #534AB7; border: 1px solid #d0ceee; }
+  .q-text { font-size: 15px; font-weight: 500; color: #1a1a1a; line-height: 1.55; margin-bottom: 0.75rem; }
+  .q-img { width: 100%; max-height: 170px; object-fit: contain; border-radius: 10px; border: 1px solid #eee; margin-bottom: 0.75rem; background: #f9f9f9; display: none; }
+  .options { display: flex; flex-direction: column; gap: 8px; margin-bottom: 1rem; }
+  .opt-btn { text-align: left; padding: 11px 14px; font-size: 14px; border-radius: 10px; border: 1px solid #ddd; background: #fff; color: #1a1a1a; cursor: pointer; transition: background 0.15s, border-color 0.15s; line-height: 1.4; width: 100%; }
+  .opt-btn:hover:not(:disabled) { background: #f5f5f5; border-color: #aaa; }
+  .opt-btn.correct { background: #eaf3de; border-color: #639922; color: #27500a; font-weight: 500; }
+  .opt-btn.wrong { background: #fcebeb; border-color: #a32d2d; color: #501313; }
+  .opt-btn.reveal { background: #eaf3de; border-color: #639922; color: #27500a; }
+  .opt-btn:disabled { cursor: default; }
+  .feedback { font-size: 13px; padding: 9px 12px; border-radius: 10px; margin-bottom: 0.75rem; line-height: 1.55; display: none; }
+  .feedback.correct { background: #eaf3de; color: #27500a; display: block; border: 1px solid #b6d988; }
+  .feedback.wrong { background: #fcebeb; color: #501313; display: block; border: 1px solid #f0b0b0; }
+  .nav-row { display: flex; gap: 8px; }
+  .nav-btn { flex: 1; padding: 11px; font-size: 14px; border-radius: 10px; border: 1px solid #ddd; background: #fff; color: #1a1a1a; cursor: pointer; font-weight: 500; transition: background 0.15s; }
+  .nav-btn.primary { background: #534AB7; color: #fff; border-color: #534AB7; }
+  .nav-btn:hover { background: #f0f0f0; }
+  .nav-btn.primary:hover { background: #3c3489; }
+  .nav-btn:disabled { opacity: 0.35; cursor: default; }
+
+  /* Result screen */
+  #result-screen { display: none; background: #fff; border-radius: 16px; box-shadow: 0 2px 16px rgba(0,0,0,0.08); padding: 1.25rem 1rem; width: 100%; max-width: 480px; margin: 0 auto; }
+  .score-circle { width: 110px; height: 110px; border-radius: 50%; border: 5px solid #534AB7; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 1rem auto; }
+  .score-num { font-size: 28px; font-weight: 600; color: #534AB7; }
+  .score-label { font-size: 12px; color: #888; }
+  .result-card { background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 0.9rem 1rem; margin-bottom: 0.65rem; }
+  .result-q { font-size: 13px; font-weight: 500; color: #1a1a1a; margin-bottom: 6px; line-height: 1.45; }
+  .result-row { display: flex; gap: 6px; font-size: 12px; flex-wrap: wrap; }
+  .tag { padding: 2px 9px; border-radius: 99px; font-size: 12px; }
+  .tag.correct { background: #eaf3de; color: #27500a; }
+  .tag.wrong { background: #fcebeb; color: #501313; }
+  .tag.ans { background: #eeedfe; color: #3c3489; }
+  .tag.skipped { background: #f5f5f0; color: #888; }
+  .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 1rem 0; }
+  .stat-box { background: #f7f7f5; border-radius: 10px; padding: 0.75rem; text-align: center; }
+  .stat-val { font-size: 22px; font-weight: 600; color: #1a1a1a; }
+  .stat-lbl { font-size: 12px; color: #888; margin-top: 2px; }
+  .section-head { font-size: 12px; font-weight: 600; color: #888; margin: 1rem 0 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .restart-btn { width: 100%; padding: 12px; font-size: 15px; border-radius: 10px; border: none; background: #534AB7; color: #fff; cursor: pointer; font-weight: 600; margin-top: 0.5rem; }
+  .restart-btn:hover { background: #3c3489; }
+  .result-header { font-size: 18px; font-weight: 600; color: #1a1a1a; margin-bottom: 0.2rem; }
+  .result-sub { font-size: 13px; color: #888; }
+</style>
+</head>
+<body>
+
+<div id="quiz-wrap">
+  <h1>CBSE Class 10 MCQ Quiz</h1>
+  <p class="subtitle">Life Processes &amp; Reflection of Light &nbsp;|&nbsp; 25 Questions &nbsp;|&nbsp; 50 Marks</p>
+  <div class="progress-bar-bg"><div class="progress-bar-fill" id="prog-fill" style="width:4%"></div></div>
+  <div class="q-meta">
+    <span id="q-counter">Q 1 / 25</span>
+    <span class="chapter-badge" id="chapter-tag">Life Processes</span>
+  </div>
+  <div class="q-text" id="q-text"></div>
+  <img id="q-img" class="q-img" src="" alt="diagram" />
+  <div class="options" id="options"></div>
+  <div class="feedback" id="feedback"></div>
+  <div class="nav-row">
+    <button class="nav-btn" id="btn-prev" onclick="goTo(cur-1)">← Prev</button>
+    <button class="nav-btn primary" id="btn-next" onclick="nextOrFinish()">Next →</button>
+  </div>
+</div>
+
+<div id="result-screen"></div>
+
+<script>
+const questions = [
+  { chapter:"Life Processes", q:"Which of the following is the correct sequence of events in photosynthesis?", opts:["Light reactions → Calvin cycle → Glucose","Calvin cycle → Light reactions → Glucose","Glucose → Light reactions → Calvin cycle","Light reactions → Glucose → Calvin cycle"], ans:0, explain:"Light reactions happen first (in thylakoids), producing ATP and NADPH, then the Calvin cycle (stroma) uses these to fix CO₂ into glucose." },
+  { chapter:"Life Processes", q:"The breakdown of pyruvate to give carbon dioxide, water and energy takes place in:", opts:["Cytoplasm","Mitochondria","Chloroplast","Nucleus"], ans:1, explain:"Aerobic respiration (Krebs cycle + oxidative phosphorylation) occurs in the mitochondria, where pyruvate is fully oxidised." },
+  { chapter:"Life Processes", q:"What is the role of HCl in the human stomach?", opts:["Digests proteins directly","Provides acidic medium for pepsin to act","Emulsifies fats","Neutralises food"], ans:1, explain:"HCl creates an acidic pH (~2) needed to activate pepsinogen into pepsin, which then digests proteins." },
+  { chapter:"Life Processes", img:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Diagram_of_the_human_heart_%28cropped%29.svg/400px-Diagram_of_the_human_heart_%28cropped%29.svg.png", q:"In the diagram of the human heart, which chamber receives oxygenated blood from the lungs?", opts:["Right atrium","Right ventricle","Left atrium","Left ventricle"], ans:2, explain:"Pulmonary veins bring oxygenated blood from lungs into the left atrium." },
+  { chapter:"Life Processes", q:"Which of the following organisms carry out anaerobic respiration to produce ethanol?", opts:["Humans during exercise","Yeast","Lactobacillus","Both A and C"], ans:1, explain:"Yeast performs anaerobic fermentation, converting glucose → ethanol + CO₂. Lactobacillus produces lactic acid, not ethanol." },
+  { chapter:"Life Processes", q:"The functional unit of kidney responsible for filtration is:", opts:["Ureter","Nephron","Urethra","Bowman's capsule alone"], ans:1, explain:"The nephron is the structural and functional unit of the kidney. Bowman's capsule is part of the nephron, not the unit itself." },
+  { chapter:"Life Processes", q:"Which of the following is NOT a raw material for photosynthesis?", opts:["Carbon dioxide","Water","Oxygen","Sunlight"], ans:2, explain:"Oxygen is a by-product of photosynthesis (from splitting water), not a raw material. Raw materials are CO₂, water, and light energy." },
+  { chapter:"Life Processes", q:"Blood pressure is measured in:", opts:["Pascal","mm of Hg","Newton/m²","Atmosphere"], ans:1, explain:"Blood pressure is clinically measured in millimetres of mercury (mm Hg). Normal is around 120/80 mm Hg." },
+  { chapter:"Life Processes", q:"In which part of the alimentary canal is water absorbed maximally?", opts:["Stomach","Small intestine","Large intestine","Oesophagus"], ans:2, explain:"The large intestine (colon) is the primary site of water absorption, converting liquid chyme into solid faeces." },
+  { chapter:"Life Processes", q:"Opening and closing of stomata is controlled by:", opts:["Epidermal cells","Guard cells","Mesophyll cells","Root hair cells"], ans:1, explain:"Guard cells surround the stomatal pore. When they absorb water (become turgid), stomata open; when they lose water, stomata close." },
+  { chapter:"Life Processes", q:"Which vein carries oxygenated blood in the human body?", opts:["Pulmonary vein","Hepatic vein","Renal vein","Jugular vein"], ans:0, explain:"Pulmonary veins carry oxygenated blood from the lungs to the left atrium — uniquely, a vein carrying oxygenated blood." },
+  { chapter:"Life Processes", q:"Gall bladder stores:", opts:["Insulin","Bile juice","Pancreatic juice","Gastric juice"], ans:1, explain:"The gall bladder stores and concentrates bile juice produced by the liver. Bile emulsifies fats in the small intestine." },
+  { chapter:"Life Processes", q:"Which enzyme is responsible for digestion of starch in the mouth?", opts:["Pepsin","Lipase","Salivary amylase","Trypsin"], ans:2, explain:"Salivary amylase (ptyalin) secreted by salivary glands begins the digestion of starch into maltose in the mouth." },
+  { chapter:"Reflection of Light", q:"The image formed by a plane mirror is:", opts:["Real and inverted","Virtual and erect","Real and erect","Virtual and inverted"], ans:1, explain:"A plane mirror forms a virtual (cannot be projected on screen), erect image of the same size as the object, laterally inverted." },
+  { chapter:"Reflection of Light", q:"Which mirror is used as a rear-view mirror in vehicles?", opts:["Concave mirror","Plane mirror","Convex mirror","Parabolic mirror"], ans:2, explain:"Convex mirrors are used as rear-view mirrors because they have a wider field of view and always form erect, diminished virtual images." },
+  { chapter:"Reflection of Light", img:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Concave_mirror.svg/400px-Concave_mirror.svg.png", q:"For a concave mirror, when object is placed at the centre of curvature (C), the image is formed:", opts:["At infinity","At focus F","At C itself","Between F and C"], ans:2, explain:"When object is at C (radius of curvature), image forms at C itself — real, inverted and same size as the object." },
+  { chapter:"Reflection of Light", q:"The focal length of a concave mirror is 15 cm. Its radius of curvature is:", opts:["7.5 cm","15 cm","30 cm","45 cm"], ans:2, explain:"Radius of curvature R = 2f = 2 × 15 = 30 cm. This is a fundamental relation for spherical mirrors." },
+  { chapter:"Reflection of Light", q:"A ray of light passing through the principal focus of a concave mirror, after reflection will:", opts:["Pass through the centre of curvature","Become parallel to the principal axis","Pass through the pole","Retrace its path"], ans:1, explain:"By the laws of reflection for concave mirrors: a ray through F reflects parallel to the principal axis." },
+  { chapter:"Reflection of Light", q:"The mirror formula is:", opts:["1/v + 1/u = 1/f","1/v - 1/u = 1/f","1/f = 1/v × 1/u","v + u = f"], ans:0, explain:"Mirror formula: 1/v + 1/u = 1/f, where u = object distance, v = image distance, f = focal length (measured from pole)." },
+  { chapter:"Reflection of Light", q:"Magnification produced by a mirror is given by m = –v/u. A magnification of –2 means the image is:", opts:["Virtual and erect, twice the size","Real and inverted, twice the size","Virtual and inverted, twice the size","Real and erect, twice the size"], ans:1, explain:"Negative magnification means the image is real and inverted. |m| = 2 means image is twice the object size." },
+  { chapter:"Reflection of Light", q:"Which of the following is used as a shaving mirror?", opts:["Convex mirror","Plane mirror","Concave mirror","Both A and B"], ans:2, explain:"Concave mirrors are used as shaving/makeup mirrors because when the face is between F and P, they form a magnified, erect, virtual image." },
+  { chapter:"Reflection of Light", q:"An object is placed 20 cm in front of a concave mirror of focal length 10 cm. The image distance is:", opts:["10 cm","20 cm","-20 cm","-10 cm"], ans:2, explain:"Using mirror formula: 1/v + 1/(-20) = 1/(-10) → 1/v = -1/10 + 1/20 = -1/20 → v = -20 cm. Image is real, 20 cm in front." },
+  { chapter:"Reflection of Light", q:"The angle of incidence is always measured from:", opts:["The mirror surface","The normal at the point of incidence","The principal axis","The pole"], ans:1, explain:"By convention, angle of incidence (and reflection) is always measured from the normal drawn at the point where the ray hits the surface." },
+  { chapter:"Reflection of Light", q:"Which type of image can be obtained on a screen?", opts:["Virtual image","Erect image","Real image","Diminished image"], ans:2, explain:"Only real images can be projected on a screen because light rays actually converge at the image point." },
+  { chapter:"Reflection of Light", q:"The image formed by a convex mirror is always:", opts:["Real, inverted, diminished","Virtual, erect, enlarged","Virtual, erect, diminished","Real, erect, same size"], ans:2, explain:"A convex mirror always forms a virtual, erect and diminished image regardless of object position." },
+];
+
+let cur = 0;
+let userAnswers = Array(questions.length).fill(null);
+let answered = Array(questions.length).fill(false);
+
+function renderQ() {
+  const q = questions[cur];
+  document.getElementById('prog-fill').style.width = ((cur+1)/questions.length*100)+'%';
+  document.getElementById('q-counter').textContent = 'Q '+(cur+1)+' / '+questions.length;
+  document.getElementById('chapter-tag').textContent = q.chapter;
+  document.getElementById('q-text').textContent = q.q;
+  const img = document.getElementById('q-img');
+  if(q.img){ img.src=q.img; img.style.display='block'; } else { img.style.display='none'; }
+  const opts = document.getElementById('options');
+  opts.innerHTML = '';
+  q.opts.forEach((o,i)=>{
+    const b = document.createElement('button');
+    b.className='opt-btn';
+    b.textContent = String.fromCharCode(65+i)+'. '+o;
+    b.onclick = ()=>selectOpt(i);
+    if(answered[cur]){
+      b.disabled=true;
+      if(i===q.ans) b.classList.add('correct');
+      else if(i===userAnswers[cur] && userAnswers[cur]!==q.ans) b.classList.add('wrong');
+    }
+    opts.appendChild(b);
+  });
+  const fb = document.getElementById('feedback');
+  if(answered[cur]){
+    const correct = userAnswers[cur]===q.ans;
+    fb.className='feedback '+(correct?'correct':'wrong');
+    fb.innerHTML=(correct?'<b>✓ Correct!</b> ':'<b>✗ Incorrect.</b> ')+q.explain;
+  } else { fb.className='feedback'; }
+  const prev = document.getElementById('btn-prev');
+  prev.disabled = cur===0;
+  const nb = document.getElementById('btn-next');
+  nb.textContent = cur===questions.length-1 ? 'Finish ✓' : 'Next →';
+}
+
+function selectOpt(i){
+  if(answered[cur]) return;
+  userAnswers[cur]=i;
+  answered[cur]=true;
+  renderQ();
+}
+
+function goTo(idx){
+  if(idx<0||idx>=questions.length) return;
+  cur=idx; renderQ();
+}
+
+function nextOrFinish(){
+  if(cur===questions.length-1){ showResult(); return; }
+  cur++; renderQ();
+}
+
+function showResult(){
+  document.getElementById('quiz-wrap').style.display='none';
+  const rs = document.getElementById('result-screen');
+  rs.style.display='block';
+  const correct = userAnswers.filter((a,i)=>a===questions[i].ans).length;
+  const attempted = answered.filter(Boolean).length;
+  const wrong = attempted - correct;
+  const skipped = questions.length - attempted;
+  const marks = correct * 2;
+  const pct = Math.round(correct/questions.length*100);
+  let grade = pct>=90?'Excellent! 🌟': pct>=70?'Good job! 👍': pct>=50?'Keep practicing! 📚':'Needs more practice 💪';
+
+  let html=`<p class="result-header">Quiz Complete</p>
+  <p class="result-sub">${grade}</p>
+  <div class="score-circle"><span class="score-num">${pct}%</span><span class="score-label">score</span></div>
+  <div class="stats-grid">
+    <div class="stat-box"><div class="stat-val" style="color:#534AB7">${marks}<span style="font-size:14px;color:#888">/50</span></div><div class="stat-lbl">Marks (2 each)</div></div>
+    <div class="stat-box"><div class="stat-val" style="color:#3B6D11">${correct}</div><div class="stat-lbl">Correct</div></div>
+    <div class="stat-box"><div class="stat-val" style="color:#A32D2D">${wrong}</div><div class="stat-lbl">Incorrect</div></div>
+    <div class="stat-box"><div class="stat-val" style="color:#888">${skipped}</div><div class="stat-lbl">Skipped</div></div>
+  </div>
+  <p class="section-head">Answer Review</p>`;
+
+  questions.forEach((q,i)=>{
+    const ua=userAnswers[i];
+    const isCorrect=ua===q.ans;
+    const status=ua===null?'skipped':(isCorrect?'correct':'wrong');
+    html+=`<div class="result-card">
+      <div class="result-q">Q${i+1}. ${q.q}</div>
+      <div class="result-row">
+        <span class="tag ans">✓ ${String.fromCharCode(65+q.ans)}. ${q.opts[q.ans]}</span>
+        ${ua!==null && !isCorrect?`<span class="tag wrong">✗ Your: ${String.fromCharCode(65+ua)}. ${q.opts[ua]}</span>`:''}
+        <span class="tag ${status}">${status==='skipped'?'Skipped':status==='correct'?'Correct':'Wrong'}</span>
+      </div>
+    </div>`;
+  });
+
+  html+=`<button class="restart-btn" onclick="restartQuiz()">↺ Restart Quiz</button>`;
+  rs.innerHTML=html;
+  window.scrollTo(0,0);
+}
+
+function restartQuiz(){
+  cur=0; userAnswers=Array(questions.length).fill(null); answered=Array(questions.length).fill(false);
+  document.getElementById('result-screen').style.display='none';
+  document.getElementById('quiz-wrap').style.display='block';
+  renderQ();
+  window.scrollTo(0,0);
+}
+
+renderQ();
+</script>
+</body>
+</html>
