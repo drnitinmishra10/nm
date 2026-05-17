@@ -1,1 +1,857 @@
-<h1> hello </h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SUMMIT — Class 10 CBSE Worksheet Library</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;800;900&family=DM+Mono:wght@400;500&family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --dark:#0d0f14;
+  --dark2:#161921;
+  --dark3:#1e2230;
+  --steel:#2c3347;
+  --paper:#f4f1eb;
+  --paper2:#e8e3d8;
+  --gold:#d4a017;
+  --gold-light:#fff8e1;
+  --gold-dim:#8a6800;
+  --cyan:#00c2d1;
+  --cyan-dim:#004f57;
+  --red:#e53935;
+  --green:#43a047;
+  --orange:#f57c00;
+  --purple:#7b1fa2;
+  --blue:#1565c0;
+  --white:#ffffff;
+  --muted:#9aa0b0;
+  --faint:#4a5068;
+  --serif:'Lora',Georgia,serif;
+  --display:'Bebas Neue',Impact,sans-serif;
+  --round:'Nunito',sans-serif;
+  --mono:'DM Mono',monospace;
+  --radius:12px;
+}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--dark);
+  color:var(--paper);
+  font-family:var(--round);
+  line-height:1.65;
+  overflow-x:hidden;
+}
+
+/* GOLD TOP BAR */
+.topbar{
+  height:5px;
+  background:linear-gradient(90deg,var(--gold) 0%,#ffe082 40%,var(--gold) 70%,#ffe082 100%);
+}
+
+/* TICKER */
+.ticker{
+  background:var(--dark2);
+  border-bottom:1px solid var(--steel);
+  font-family:var(--mono);font-size:0.58rem;
+  letter-spacing:0.14em;text-transform:uppercase;
+  padding:0.42rem 0;overflow:hidden;white-space:nowrap;
+  color:var(--gold);
+}
+.ticker-track{display:inline-block;animation:tick 34s linear infinite;}
+@keyframes tick{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* HEADER */
+header{
+  background:var(--dark);
+  border-bottom:2px solid var(--gold);
+  padding:0 2.5rem;
+}
+.hdr-top{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:0.55rem 0;
+  border-bottom:1px solid var(--steel);
+  font-family:var(--mono);font-size:0.57rem;
+  letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);
+}
+.hdr-top span b{color:var(--gold);}
+.hdr-main{
+  display:grid;grid-template-columns:auto 1fr auto;
+  align-items:center;gap:2rem;padding:1.4rem 0 1.2rem;
+}
+.hdr-badge{
+  background:var(--gold);
+  border:2px solid var(--gold);
+  border-radius:var(--radius);
+  padding:0.9rem 1.1rem;
+  text-align:center;min-width:110px;
+}
+.badge-sup{
+  font-family:var(--mono);font-size:0.52rem;
+  letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--dark);display:block;margin-bottom:0.1rem;font-weight:700;
+}
+.badge-num{
+  font-family:var(--display);font-size:2.8rem;
+  line-height:1;color:var(--dark);display:block;letter-spacing:0.02em;
+}
+.badge-sub{
+  font-family:var(--mono);font-size:0.5rem;
+  letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--dark);display:block;margin-top:0.1rem;font-weight:700;
+}
+.logo-block{text-align:center;}
+.logo-icon{
+  font-size:2.8rem;line-height:1;display:block;margin-bottom:0.1rem;
+  animation:float 3s ease-in-out infinite;
+}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+.logo-name{
+  font-family:var(--display);
+  font-size:clamp(4rem,11vw,9rem);
+  line-height:0.85;letter-spacing:0.04em;
+  color:var(--white);display:block;
+  text-shadow:0 0 40px rgba(212,160,23,0.3);
+}
+.logo-name span{color:var(--gold);}
+.logo-tagline{
+  font-family:var(--serif);font-style:italic;
+  font-size:0.85rem;color:var(--muted);
+  letter-spacing:0.06em;margin-top:0.4rem;display:block;
+}
+.hdr-rule{
+  display:flex;align-items:center;gap:0.5rem;padding:0.5rem 0 0;
+}
+.hr{flex:1;height:1px;background:var(--steel);}
+.hr.gold{background:var(--gold);height:2px;}
+.peak{color:var(--gold);font-size:0.9rem;flex-shrink:0;}
+.hdr-info{
+  font-family:var(--mono);font-size:0.6rem;
+  letter-spacing:0.07em;color:var(--muted);
+  text-transform:uppercase;line-height:2.2;text-align:right;
+}
+.hdr-info b{color:var(--gold);}
+
+/* NAV */
+nav{
+  display:flex;flex-wrap:wrap;justify-content:center;
+  border-bottom:2px solid var(--steel);
+  background:var(--dark2);
+}
+nav a{
+  font-family:var(--round);font-weight:700;font-size:0.7rem;
+  letter-spacing:0.07em;text-transform:uppercase;
+  text-decoration:none;color:var(--muted);
+  padding:0.7rem 1.4rem;border-right:1px solid var(--steel);
+  transition:all 0.2s;white-space:nowrap;
+}
+nav a:first-child{border-left:1px solid var(--steel);}
+nav a:hover{background:var(--steel);color:var(--gold);}
+nav a.active{background:var(--gold);color:var(--dark);font-weight:900;}
+
+/* HERO */
+.hero{
+  display:grid;grid-template-columns:1fr 1px 320px;
+  border-bottom:2px solid var(--steel);min-height:500px;
+}
+.hero-main{padding:2.8rem 2.5rem;}
+.hero-divider{background:var(--steel);}
+.hero-side{display:flex;flex-direction:column;}
+
+.kicker{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  border:1.5px solid var(--gold);color:var(--gold);
+  font-family:var(--mono);font-weight:500;font-size:0.6rem;
+  letter-spacing:0.14em;text-transform:uppercase;
+  padding:0.3rem 0.9rem;border-radius:4px;
+  margin-bottom:1.1rem;
+}
+.hero-headline{
+  font-family:var(--display);
+  font-size:clamp(2.8rem,6vw,5rem);
+  line-height:0.95;letter-spacing:0.03em;
+  color:var(--white);margin-bottom:1.2rem;
+}
+.hero-headline em{color:var(--gold);}
+.hero-dek{
+  font-family:var(--serif);font-size:1rem;
+  line-height:1.8;color:var(--muted);
+  max-width:500px;margin-bottom:2rem;
+}
+.subject-chips{display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:2rem;}
+.chip{
+  font-family:var(--round);font-weight:700;font-size:0.6rem;
+  letter-spacing:0.04em;text-transform:uppercase;
+  padding:0.28rem 0.8rem;border-radius:4px;
+  border:1.5px solid currentColor;
+}
+.chip.math{color:#82b1ff;background:rgba(130,177,255,0.08);border-color:#3d6fcc;}
+.chip.sci{color:#80cbc4;background:rgba(128,203,196,0.08);border-color:#2e7d72;}
+.chip.eng{color:#f48fb1;background:rgba(244,143,177,0.08);border-color:#a0405e;}
+.chip.hindi{color:#ffcc80;background:rgba(255,204,128,0.08);border-color:#c47c00;}
+.chip.sst{color:#ce93d8;background:rgba(206,147,216,0.08);border-color:#7b3fa0;}
+.chip.it{color:#80deea;background:rgba(128,222,234,0.08);border-color:#00838f;}
+.chip.sanskrit{color:#a5d6a7;background:rgba(165,214,167,0.08);border-color:#2e7d32;}
+
+.hero-byline{
+  font-family:var(--mono);font-size:0.58rem;
+  letter-spacing:0.1em;text-transform:uppercase;color:var(--faint);
+  display:flex;align-items:center;gap:0.7rem;
+}
+.hero-byline::before{content:'';flex:0 0 32px;height:1px;background:var(--gold);opacity:0.5;}
+
+/* HERO SIDE */
+.side-banner{
+  flex:1;background:linear-gradient(160deg,var(--dark3) 0%,var(--steel) 100%);
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:0.5rem;padding:2rem 1.5rem;
+  min-height:200px;border-bottom:1px solid var(--steel);
+  position:relative;overflow:hidden;
+}
+.side-banner::before{
+  content:'🏔️';
+  position:absolute;font-size:8rem;opacity:0.06;
+  bottom:-1rem;right:-1rem;line-height:1;
+}
+.side-banner-num{
+  font-family:var(--display);font-size:6rem;
+  line-height:1;color:var(--gold);
+  text-shadow:0 0 30px rgba(212,160,23,0.4);
+}
+.side-banner-label{
+  font-family:var(--mono);font-size:0.55rem;
+  letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--muted);text-align:center;
+}
+.side-list{border-top:1px solid var(--steel);}
+.side-item{
+  padding:0.95rem 1.3rem;
+  border-bottom:1px solid var(--steel);
+  text-decoration:none;color:inherit;
+  display:block;transition:background 0.2s;
+}
+.side-item:hover{background:var(--dark3);}
+.side-num{
+  font-family:var(--mono);font-size:0.52rem;
+  letter-spacing:0.12em;color:var(--gold);
+  text-transform:uppercase;margin-bottom:0.25rem;
+}
+.side-title{
+  font-family:var(--round);font-weight:700;
+  font-size:0.88rem;line-height:1.3;color:var(--paper);
+}
+
+/* COUNTDOWN STRIP */
+.countdown-strip{
+  background:var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  gap:2rem;padding:0.7rem 2rem;
+  border-bottom:2px solid var(--dark);
+  flex-wrap:wrap;
+}
+.cd-item{
+  text-align:center;display:flex;flex-direction:column;
+}
+.cd-num{
+  font-family:var(--display);font-size:1.6rem;
+  line-height:1;color:var(--dark);letter-spacing:0.04em;
+}
+.cd-label{
+  font-family:var(--mono);font-size:0.5rem;
+  letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--dark);opacity:0.7;
+}
+.cd-sep{
+  font-family:var(--display);font-size:1.4rem;
+  color:var(--dark);opacity:0.4;align-self:flex-start;margin-top:0.1rem;
+}
+.cd-msg{
+  font-family:var(--serif);font-style:italic;
+  font-size:0.82rem;color:var(--dark);
+  border-left:2px solid rgba(0,0,0,0.2);
+  padding-left:1.2rem;max-width:220px;line-height:1.5;
+}
+
+/* SECTION HEADER */
+.section-hdr{
+  display:flex;align-items:stretch;
+  border-top:2px solid var(--steel);border-bottom:1px solid var(--steel);
+  background:var(--dark2);
+}
+.sec-label{
+  font-family:var(--display);font-size:1rem;
+  letter-spacing:0.12em;
+  padding:0.55rem 2rem;border-right:1px solid var(--steel);
+  display:flex;align-items:center;gap:0.5rem;white-space:nowrap;
+  color:var(--dark);
+}
+.sec-label.gold{background:var(--gold);}
+.sec-space{flex:1;}
+.sec-meta{
+  font-family:var(--mono);font-size:0.55rem;
+  letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--faint);padding:0.55rem 2rem;
+  border-left:1px solid var(--steel);
+  display:flex;align-items:center;white-space:nowrap;
+}
+
+/* STATUS */
+.status-bar{
+  display:flex;align-items:center;gap:0.7rem;
+  font-family:var(--mono);font-size:0.6rem;
+  letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--faint);padding:1.8rem 2.5rem 0;
+}
+.dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--gold);flex-shrink:0;animation:blink 2s infinite;
+}
+.dot.ok{background:var(--green);animation:none;}
+.dot.err{background:var(--red);animation:none;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0.2;}}
+
+/* DEBUG BOX */
+.debug-box{
+  margin:1rem 2.5rem 0;
+  background:rgba(212,160,23,0.08);border:1.5px solid var(--gold-dim);
+  border-radius:var(--radius);padding:1rem 1.2rem;
+  font-family:var(--mono);font-size:0.63rem;
+  color:var(--gold);line-height:2;display:none;white-space:pre-wrap;
+}
+.debug-box.show{display:block;}
+
+/* LEGEND */
+.legend{
+  display:flex;flex-wrap:wrap;align-items:center;gap:0.6rem;
+  padding:1rem 2.5rem 0;
+}
+.leg-dot{width:9px;height:9px;border-radius:2px;flex-shrink:0;display:inline-block;margin-right:0.3rem;}
+
+/* GRID */
+.grid-section{padding:1.5rem 2.5rem 3rem;}
+.worksheet-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:1rem;
+}
+.ws-card{
+  background:var(--dark2);
+  border:1.5px solid var(--steel);
+  border-radius:var(--radius);
+  padding:1.6rem 1.5rem 1.4rem;
+  text-decoration:none;color:inherit;
+  display:flex;flex-direction:column;gap:0.5rem;
+  transition:transform 0.18s,box-shadow 0.18s,border-color 0.18s;
+  position:relative;overflow:hidden;
+}
+.ws-card::after{
+  content:'';position:absolute;
+  bottom:0;left:0;right:0;height:3px;
+  border-radius:0 0 var(--radius) var(--radius);
+}
+.ws-card.c0::after{background:var(--blue);}
+.ws-card.c1::after{background:var(--red);}
+.ws-card.c2::after{background:var(--cyan);}
+.ws-card.c3::after{background:var(--orange);}
+.ws-card.c4::after{background:var(--purple);}
+.ws-card.c5::after{background:var(--green);}
+.ws-card.c6::after{background:var(--gold);}
+.ws-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 32px rgba(0,0,0,0.4);
+  border-color:var(--gold);
+}
+.card-icon{font-size:1.6rem;line-height:1;}
+.card-num{
+  font-family:var(--mono);font-size:0.5rem;
+  letter-spacing:0.15em;text-transform:uppercase;color:var(--faint);
+}
+.card-title{
+  font-family:var(--round);font-weight:800;
+  font-size:1.05rem;line-height:1.3;
+  color:var(--paper);flex:1;
+}
+.card-foot{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-top:0.6rem;padding-top:0.6rem;
+  border-top:1px solid var(--steel);
+  font-family:var(--mono);font-size:0.5rem;color:var(--faint);
+}
+.card-btn{
+  background:var(--gold);color:var(--dark);
+  font-family:var(--round);font-weight:800;font-size:0.58rem;
+  letter-spacing:0.04em;text-transform:uppercase;
+  padding:0.28rem 0.75rem;border-radius:4px;
+  transition:background 0.2s;flex-shrink:0;
+}
+.ws-card:hover .card-btn{background:var(--white);}
+
+/* SKELETON */
+.skel-card{
+  background:var(--dark2);border:1.5px solid var(--steel);
+  border-radius:var(--radius);padding:1.6rem 1.5rem;
+}
+.skel{
+  background:linear-gradient(90deg,var(--dark3) 25%,var(--steel) 50%,var(--dark3) 75%);
+  background-size:200% 100%;
+  animation:shimmer 1.5s infinite;
+  border-radius:4px;margin-bottom:0.7rem;
+}
+@keyframes shimmer{0%{background-position:200% 0;}100%{background-position:-200% 0;}}
+
+/* EMPTY / ERROR */
+.msg-box{
+  background:var(--dark2);border:1.5px dashed var(--steel);
+  border-radius:var(--radius);padding:4rem 2rem;
+  text-align:center;grid-column:1/-1;
+}
+.msg-icon{font-size:3rem;display:block;margin-bottom:1rem;}
+.msg-title{
+  font-family:var(--display);font-size:2rem;
+  letter-spacing:0.06em;color:var(--gold);margin-bottom:0.5rem;
+}
+.msg-text{
+  font-family:var(--round);font-size:0.88rem;
+  color:var(--muted);line-height:2;
+}
+.msg-text code{
+  background:var(--steel);padding:0.15rem 0.45rem;
+  border-radius:4px;font-size:0.78rem;color:var(--paper);
+}
+
+/* MOTIVATIONAL BAND */
+.motiv-band{
+  background:var(--dark2);
+  border-top:1px solid var(--steel);
+  border-bottom:1px solid var(--steel);
+  display:flex;overflow:hidden;
+}
+.motiv-inner{
+  display:flex;gap:3rem;align-items:center;
+  padding:1rem 2.5rem;flex-wrap:wrap;
+}
+.motiv-quote{
+  font-family:var(--serif);font-style:italic;
+  font-size:0.9rem;color:var(--muted);line-height:1.6;
+  border-left:3px solid var(--gold);padding-left:1rem;
+  max-width:320px;
+}
+.motiv-stat{
+  text-align:center;
+}
+.motiv-stat-num{
+  font-family:var(--display);font-size:2rem;
+  color:var(--gold);line-height:1;display:block;letter-spacing:0.04em;
+}
+.motiv-stat-label{
+  font-family:var(--mono);font-size:0.52rem;
+  letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--faint);display:block;margin-top:0.2rem;
+}
+
+/* FOOTER */
+footer{
+  background:var(--dark);
+  border-top:2px solid var(--gold);
+  padding:2rem 2.5rem;
+  display:flex;justify-content:space-between;
+  align-items:center;flex-wrap:wrap;gap:1.5rem;
+}
+.foot-logo{
+  display:flex;align-items:center;gap:0.5rem;
+  font-family:var(--display);font-size:2rem;
+  color:var(--gold);letter-spacing:0.06em;
+}
+.foot-text{
+  font-family:var(--mono);font-size:0.56rem;
+  letter-spacing:0.07em;text-transform:uppercase;
+  color:var(--faint);text-align:right;line-height:2.3;
+}
+.foot-text a{color:var(--gold);text-decoration:none;opacity:0.8;}
+.foot-text a:hover{opacity:1;text-decoration:underline;}
+
+/* RESPONSIVE */
+@media(max-width:860px){
+  .hero{grid-template-columns:1fr;}
+  .hero-divider{display:none;}
+  .hero-side{border-top:1px solid var(--steel);}
+  .hdr-main{grid-template-columns:1fr;}
+  .hdr-badge,.hdr-info{display:none;}
+  .countdown-strip{gap:1rem;}
+}
+@media(max-width:520px){
+  header,.grid-section,.status-bar,.legend,.debug-box,footer,.motiv-inner{padding-left:1rem;padding-right:1rem;}
+  .hero-main{padding:1.5rem 1rem;}
+  .worksheet-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar"></div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    🏔️ SUMMIT · CLASS 10 CBSE BOARD PREP &nbsp;·&nbsp; MATHS · SCIENCE · ENGLISH · SST · HINDI · IT &nbsp;·&nbsp; FREE WORKSHEETS &nbsp;·&nbsp; AUTO-UPDATED FROM GITHUB &nbsp;·&nbsp; DRNITINMISHRA10/NM &nbsp;·&nbsp; AIM HIGH · WORK HARD · REACH THE SUMMIT &nbsp;&nbsp;&nbsp;&nbsp;
+    🏔️ SUMMIT · CLASS 10 CBSE BOARD PREP &nbsp;·&nbsp; MATHS · SCIENCE · ENGLISH · SST · HINDI · IT &nbsp;·&nbsp; FREE WORKSHEETS &nbsp;·&nbsp; AUTO-UPDATED FROM GITHUB &nbsp;·&nbsp; DRNITINMISHRA10/NM &nbsp;·&nbsp; AIM HIGH · WORK HARD · REACH THE SUMMIT &nbsp;&nbsp;&nbsp;&nbsp;
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="hdr-top">
+    <span>CBSE Board · <b>Class 10</b></span>
+    <span id="dateTop">—</span>
+    <span>drnitinmishra10 / <b>nm</b></span>
+  </div>
+  <div class="hdr-main">
+    <div class="hdr-badge">
+      <span class="badge-sup">Class</span>
+      <span class="badge-num">10</span>
+      <span class="badge-sub">CBSE</span>
+    </div>
+    <div class="logo-block">
+      <span class="logo-icon">🏔️</span>
+      <span class="logo-name">SUM<span>MIT</span></span>
+      <span class="logo-tagline">Class 10 CBSE Worksheet Library</span>
+      <div class="hdr-rule">
+        <div class="hr"></div>
+        <span class="peak">◆</span>
+        <div class="hr gold"></div>
+        <span class="peak">◆</span>
+        <div class="hr"></div>
+      </div>
+    </div>
+    <div class="hdr-info">
+      Board Exam Ready<br>
+      <b>NCERT</b> Aligned<br>
+      Free Worksheets<br>
+      Auto-Updated
+    </div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="active">🏠 Home</a>
+  <a href="#worksheets">📄 All Worksheets</a>
+  <a href="#countdown">⏳ Board Countdown</a>
+  <a href="https://github.com/drnitinmishra10/nm" target="_blank">📁 Repository ↗</a>
+  <a href="https://github.com/drnitinmishra10/nm/issues/new" target="_blank">💡 Suggest Topic ↗</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-main">
+    <div class="kicker">🏔️ Class 10 · CBSE Board · 2025–26</div>
+    <h1 class="hero-headline">
+      Conquer Your<br><em>Board Exams</em><br>One Worksheet at a Time
+    </h1>
+    <p class="hero-dek">
+      Comprehensive CBSE Class 10 worksheets built for board exam success — covering every chapter, every concept, every mark. Practice daily. Reach the Summit.
+    </p>
+    <div class="subject-chips">
+      <span class="chip math">📐 Mathematics</span>
+      <span class="chip sci">🔬 Science</span>
+      <span class="chip eng">📖 English</span>
+      <span class="chip sst">🗺️ Social Studies</span>
+      <span class="chip hindi">🇮🇳 Hindi</span>
+      <span class="chip it">💻 IT</span>
+      <span class="chip sanskrit">🕉️ Sanskrit</span>
+    </div>
+    <div class="hero-byline">
+      Dr. Nitin Mishra &nbsp;·&nbsp; CBSE Class 10 Board Prep &nbsp;·&nbsp; <span id="heroYear">2026</span>
+    </div>
+  </div>
+  <div class="hero-divider"></div>
+  <div class="hero-side">
+    <div class="side-banner">
+      <span class="side-banner-num" id="countDisplay">…</span>
+      <span class="side-banner-label">Worksheets<br>available</span>
+    </div>
+    <div class="side-list" id="heroSide"></div>
+  </div>
+</section>
+
+<!-- BOARD EXAM COUNTDOWN -->
+<div class="countdown-strip" id="countdown">
+  <div class="cd-item">
+    <span class="cd-num" id="cdDays">—</span>
+    <span class="cd-label">Days</span>
+  </div>
+  <span class="cd-sep">:</span>
+  <div class="cd-item">
+    <span class="cd-num" id="cdHours">—</span>
+    <span class="cd-label">Hours</span>
+  </div>
+  <span class="cd-sep">:</span>
+  <div class="cd-item">
+    <span class="cd-num" id="cdMins">—</span>
+    <span class="cd-label">Minutes</span>
+  </div>
+  <div class="cd-msg">Until CBSE Class 10 Board Exams 2026 — Every day of practice counts!</div>
+</div>
+
+<!-- STATUS -->
+<div class="status-bar">
+  <div class="dot" id="dot"></div>
+  <span id="statusMsg">Fetching worksheets from GitHub…</span>
+</div>
+
+<!-- DEBUG BOX -->
+<div class="debug-box" id="debugBox"></div>
+
+<!-- SECTION HEADER -->
+<div class="section-hdr" id="worksheets">
+  <div class="sec-label gold"><span>📄</span> All Worksheets</div>
+  <div class="sec-space"></div>
+  <div class="sec-meta" id="countMeta">Loading…</div>
+</div>
+
+<!-- LEGEND -->
+<div class="legend" id="legend"></div>
+
+<!-- GRID -->
+<div class="grid-section">
+  <div class="worksheet-grid" id="grid">
+    <div class="skel-card"><div class="skel" style="height:28px;width:28%;"></div><div class="skel" style="height:11px;width:48%;"></div><div class="skel" style="height:20px;width:85%;margin-top:.5rem;"></div><div class="skel" style="height:20px;width:60%;"></div><div class="skel" style="height:10px;width:42%;margin-top:1rem;"></div></div>
+    <div class="skel-card"><div class="skel" style="height:28px;width:28%;"></div><div class="skel" style="height:11px;width:40%;"></div><div class="skel" style="height:20px;width:78%;margin-top:.5rem;"></div><div class="skel" style="height:20px;width:55%;"></div><div class="skel" style="height:10px;width:38%;margin-top:1rem;"></div></div>
+    <div class="skel-card"><div class="skel" style="height:28px;width:28%;"></div><div class="skel" style="height:11px;width:54%;"></div><div class="skel" style="height:20px;width:80%;margin-top:.5rem;"></div><div class="skel" style="height:20px;width:68%;"></div><div class="skel" style="height:10px;width:44%;margin-top:1rem;"></div></div>
+  </div>
+</div>
+
+<!-- MOTIVATIONAL BAND -->
+<div class="motiv-band">
+  <div class="motiv-inner">
+    <div class="motiv-quote">
+      "Success is the sum of small efforts, repeated day in and day out. Every worksheet you complete brings you one step closer to the Summit."
+    </div>
+    <div class="motiv-stat">
+      <span class="motiv-stat-num">80%</span>
+      <span class="motiv-stat-label">Board marks come<br>from NCERT practice</span>
+    </div>
+    <div class="motiv-stat">
+      <span class="motiv-stat-num">5</span>
+      <span class="motiv-stat-label">Core subjects<br>to master</span>
+    </div>
+    <div class="motiv-stat">
+      <span class="motiv-stat-num">A+</span>
+      <span class="motiv-stat-label">Your target<br>grade</span>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-logo">🏔️ SUMMIT</div>
+  <div class="foot-text">
+    Auto-fetched from <a href="https://github.com/drnitinmishra10/nm" target="_blank">github.com/drnitinmishra10/nm</a><br>
+    New worksheets appear automatically when uploaded · Refreshes every 5 min<br>
+    © 2026 · CBSE Class 10 Board Prep · Free for all students
+  </div>
+</footer>
+
+<script>
+/* ─── CONFIG ─────────────────────────────── */
+const USER   = 'drnitinmishra10';
+const REPO   = 'nm';
+const BRANCH = 'main';
+const EXCLUDE = ['index.html'];
+const PAGES_BASE = `https://${USER}.github.io/${REPO}/`;
+const RAW_BASE   = `https://raw.githubusercontent.com/${USER}/${REPO}/${BRANCH}/`;
+const TREE_API   = `https://api.github.com/repos/${USER}/${REPO}/git/trees/${BRANCH}?recursive=1`;
+
+const COLORS = ['c0','c1','c2','c3','c4','c5','c6'];
+
+/* Board exam date — CBSE Class 10 2026 (typically Feb 15) */
+const BOARD_DATE = new Date('2026-02-15T09:00:00');
+
+/* Subject detection for Class 10 */
+const SUBJECTS = [
+  {keys:['math','algebra','geometry','trigonometry','statistic','probability','arithmetic','quadratic','linear','coordinate','circle','polynomial','real number'],
+    label:'Mathematics', icon:'📐', dot:'#1565c0'},
+  {keys:['science','physics','chemistry','biology','light','electricity','magnetic','force','carbon','metal','acid','base','life process','control','reproduction','heredity','evolution','natural resource'],
+    label:'Science', icon:'🔬', dot:'#00796b'},
+  {keys:['english','grammar','writing','letter','comprehension','poem','prose','literature','first flight','footprint'],
+    label:'English', icon:'📖', dot:'#880e4f'},
+  {keys:['social','history','geography','civics','economic','political','democratic','resource','agriculture','manufacturing','consumer','nationalism','print culture','contemporary'],
+    label:'Soc. Studies', icon:'🗺️', dot:'#6a1b9a'},
+  {keys:['hindi','हिंदी','kshitij','kritika','sparsh','sanchayan','vyakaran','kavita','gadya'],
+    label:'Hindi', icon:'🇮🇳', dot:'#e65100'},
+  {keys:['information technology','it','computer','database','digital','spreadsheet','html','networking','cyber'],
+    label:'IT', icon:'💻', dot:'#006064'},
+  {keys:['sanskrit','shemushi','abhyaswaan'],
+    label:'Sanskrit', icon:'🕉️', dot:'#2e7d32'},
+  {keys:['gk','general','current','awareness'],
+    label:'GK', icon:'🌍', dot:'#4e342e'},
+];
+
+function detectSubject(text){
+  const t = text.toLowerCase();
+  for(const s of SUBJECTS) if(s.keys.some(k=>t.includes(k))) return s;
+  return {icon:'📄', dot:'#4a5068', label:'Worksheet'};
+}
+
+/* ─── COUNTDOWN ─────────────────────────── */
+function updateCountdown(){
+  const diff = BOARD_DATE - new Date();
+  if(diff <= 0){
+    document.getElementById('cdDays').textContent  = '0';
+    document.getElementById('cdHours').textContent = '0';
+    document.getElementById('cdMins').textContent  = '0';
+    return;
+  }
+  const days  = Math.floor(diff / 86400000);
+  const hours = Math.floor((diff % 86400000) / 3600000);
+  const mins  = Math.floor((diff % 3600000)  / 60000);
+  document.getElementById('cdDays').textContent  = String(days).padStart(3,'0');
+  document.getElementById('cdHours').textContent = String(hours).padStart(2,'0');
+  document.getElementById('cdMins').textContent  = String(mins).padStart(2,'0');
+}
+updateCountdown();
+setInterval(updateCountdown, 60000);
+
+/* ─── DATES ─────────────────────────────── */
+const now = new Date();
+document.getElementById('dateTop').textContent =
+  now.toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'});
+document.getElementById('heroYear').textContent = now.getFullYear();
+
+/* ─── HELPERS ────────────────────────────── */
+const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+function showDebug(msg){
+  const b = document.getElementById('debugBox');
+  b.textContent = msg; b.classList.add('show');
+}
+
+function setStatus(msg, state){
+  document.getElementById('statusMsg').textContent = msg;
+  const d = document.getElementById('dot');
+  d.className = 'dot'+(state==='ok'?' ok':state==='err'?' err':'');
+}
+
+async function getTitle(path){
+  try{
+    const r = await fetch(RAW_BASE+path,{cache:'no-store'});
+    if(!r.ok) throw 0;
+    const txt = await r.text();
+    const m = txt.match(/<title[^>]*>([^<]+)<\/title>/i);
+    return m ? m[1].trim() : path.replace(/\.html$/i,'').replace(/[-_]/g,' ');
+  }catch{ return path.replace(/\.html$/i,'').replace(/[-_]/g,' '); }
+}
+
+function makeCard(n, path, title){
+  const sub = detectSubject(title+' '+path);
+  const col = COLORS[n % COLORS.length];
+  const card = document.createElement('a');
+  card.className = `ws-card ${col}`;
+  card.href = PAGES_BASE+path; card.target='_blank'; card.rel='noopener noreferrer';
+  card.innerHTML=`
+    <div class="card-icon">${sub.icon}</div>
+    <div class="card-num">Worksheet No. ${String(n).padStart(2,'0')}</div>
+    <div class="card-title">${esc(title)}</div>
+    <div class="card-foot">
+      <span>${esc(path)}</span>
+      <span class="card-btn">Open →</span>
+    </div>`;
+  return card;
+}
+
+function makeSide(n, path, title){
+  const sub = detectSubject(title+' '+path);
+  const el = document.createElement('a');
+  el.className='side-item'; el.href=PAGES_BASE+path;
+  el.target='_blank'; el.rel='noopener noreferrer';
+  el.innerHTML=`
+    <div class="side-num">${sub.icon} Worksheet ${String(n).padStart(2,'0')}</div>
+    <div class="side-title">${esc(title)}</div>`;
+  return el;
+}
+
+function buildLegend(files, titles){
+  const seen=new Set(), items=[];
+  files.forEach((f,i)=>{
+    const s=detectSubject(titles[i]+' '+f);
+    if(!seen.has(s.label)){seen.add(s.label);items.push(s);}
+  });
+  const leg=document.getElementById('legend');
+  leg.innerHTML='<span style="font-family:var(--mono);font-size:0.52rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--faint);margin-right:0.3rem;">Subjects →</span>';
+  items.forEach(s=>{
+    const el=document.createElement('span');
+    el.style.cssText='display:flex;align-items:center;gap:0.35rem;font-family:var(--round);font-weight:600;font-size:0.62rem;color:var(--muted);';
+    el.innerHTML=`<span class="leg-dot" style="background:${s.dot}"></span>${s.label}`;
+    leg.appendChild(el);
+  });
+}
+
+/* ─── MAIN LOADER ────────────────────────── */
+async function load(){
+  const grid=document.getElementById('grid');
+  const side=document.getElementById('heroSide');
+  try{
+    setStatus('Connecting to GitHub API…');
+    const res = await fetch(TREE_API,{cache:'no-store'});
+    if(!res.ok){
+      const err=await res.text();
+      showDebug(`API URL: ${TREE_API}\nHTTP: ${res.status}\n${err.slice(0,300)}`);
+      throw new Error(`GitHub API returned ${res.status}`);
+    }
+    const data = await res.json();
+    const allFiles = (data.tree||[]).filter(f=>f.type==='blob').map(f=>f.path);
+    const files = allFiles.filter(f=>/\.html$/i.test(f)&&!EXCLUDE.includes(f)).sort();
+
+    if(!files.length){
+      showDebug(`API OK. Files in repo: ${allFiles.join(', ')||'(none)'}\nNo .html worksheet files found yet.`);
+      grid.innerHTML=`<div class="msg-box">
+        <span class="msg-icon">🏔️</span>
+        <div class="msg-title">The Summit Awaits</div>
+        <div class="msg-text">
+          No worksheets uploaded yet.<br>
+          Upload <code>.html</code> files to
+          <strong>github.com/${USER}/${REPO}</strong><br>
+          and they will appear here automatically.<br><br>
+          Each file needs a <code>&lt;title&gt;Worksheet Name&lt;/title&gt;</code> tag.
+        </div></div>`;
+      document.getElementById('countDisplay').textContent='0';
+      document.getElementById('countMeta').textContent='0 worksheets · upload to begin';
+      setStatus('No worksheets found — upload .html files to the repo','ok');
+      return;
+    }
+
+    setStatus(`Found ${files.length} worksheet${files.length>1?'s':''} — fetching titles…`);
+    document.getElementById('countDisplay').textContent=files.length;
+    document.getElementById('countMeta').textContent=
+      `${files.length} worksheet${files.length!==1?'s':''} · auto-updated`;
+
+    const titles = await Promise.all(files.map(getTitle));
+    buildLegend(files,titles);
+
+    grid.innerHTML=''; side.innerHTML='';
+    files.forEach((path,i)=>{
+      grid.appendChild(makeCard(i+1,path,titles[i]));
+      if(i<4) side.appendChild(makeSide(i+1,path,titles[i]));
+    });
+
+    setStatus(
+      `${files.length} worksheet${files.length>1?'s':''} loaded · refreshes every 5 min · last updated ${new Date().toLocaleTimeString('en-IN')}`,
+      'ok'
+    );
+  }catch(err){
+    console.error(err);
+    showDebug(`Error: ${err.message}\nAPI: ${TREE_API}`);
+    grid.innerHTML=`<div class="msg-box">
+      <span class="msg-icon">⚠️</span>
+      <div class="msg-title">Could Not Load Worksheets</div>
+      <div class="msg-text">${esc(err.message)}<br>Check the debug box above for details.</div>
+    </div>`;
+    setStatus(`Error: ${err.message}`,'err');
+  }
+}
+
+load();
+setInterval(load, 5*60*1000);
+</script>
+</body>
+</html>
